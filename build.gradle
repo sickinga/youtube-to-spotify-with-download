@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'YoutubeDownload'
+version '1.0-SNAPSHOT'
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.github.sapher:youtubedl-java:1.+'
+    compile 'com.google.api-client:google-api-client:1.23.0'
+    compile 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
+    compile 'com.google.apis:google-api-services-youtube:v3-rev211-1.25.0'
+    compile 'se.michaelthelin.spotify:spotify-web-api-java:2.1.2'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'net.sf.javamusictag:jid3lib:0.5.4'
+    compile 'com.google.apis:google-api-services-plus:v1-rev585-1.25.0'
+}

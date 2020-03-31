@@ -1,0 +1,10 @@
+{
+  "directoryToSaveTo": "",
+  "youtubePlaylistID": "",
+  "spotifyPlaylistID": "",
+  "checkEveryResultsOnSpotify": true,
+  "deleteVideoAfterAdding": true,
+  "googleAPI": "",
+  "spotifyClientID": "",
+  "spotifyClientSecret": ""
+}
